@@ -1,1 +1,13 @@
 /infos/
+
+# Ambiente virtual e arquivos locais
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+
+# Arquivos gerados localmente
+*.db
+*.sqlite
+*.sqlite3

@@ -1,0 +1,9 @@
+# Interface web
+streamlit
+
+# Conectores dos bancos previstos no projeto
+pymongo
+neo4j
+
+# Leitura de configurações locais em .env
+python-dotenv
