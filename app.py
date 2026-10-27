@@ -1,5 +1,6 @@
 import streamlit as st
 
+from consultas.desempenho import cronometrar
 from consultas.fabrica import MODELOS, criar_repositorio
 
 
@@ -74,19 +75,25 @@ with st.form("filtros_curriculares"):
 
 if enviar:
     if tipo_busca == "Código":
-        resultados = repositorio.buscar_por_codigo(estrutura_id, valor_busca, natureza)
+        consulta = (repositorio.buscar_por_codigo, estrutura_id, valor_busca, natureza)
     elif tipo_busca == "Nome":
-        resultados = repositorio.buscar_por_nome(estrutura_id, valor_busca, natureza)
+        consulta = (repositorio.buscar_por_nome, estrutura_id, valor_busca, natureza)
     elif tipo_busca == "Período":
-        resultados = repositorio.listar_por_periodo(estrutura_id, int(valor_busca), natureza)
+        consulta = (repositorio.listar_por_periodo, estrutura_id, int(valor_busca), natureza)
     else:
-        resultados = repositorio.listar_estrutura(estrutura_id, natureza)
+        consulta = (repositorio.listar_estrutura, estrutura_id, natureza)
+    resultados, tempo_ms = cronometrar(*consulta)
     st.session_state["resultados_curriculares"] = resultados
+    st.session_state["tempo_consulta_ms"] = tempo_ms
     st.session_state["consulta_atual"] = (modelo, estrutura_id)
 
 if st.session_state.get("consulta_atual") == (modelo, estrutura_id):
     resultados = st.session_state.get("resultados_curriculares", [])
     st.subheader("Componentes encontrados")
+    st.caption(
+        f"Tempo de resposta no {modelo}: {st.session_state['tempo_consulta_ms']:.2f} ms. "
+        "Compare os bancos na página Desempenho."
+    )
     if not resultados:
         st.info("Nenhum componente corresponde aos filtros informados.")
     else:
@@ -95,14 +102,14 @@ if st.session_state.get("consulta_atual") == (modelo, estrutura_id):
                 {
                     "Código": item["codigo"],
                     "Componente": item["nome"],
-                    "Período": item["periodo"] or "Optativa",
+                    "Período": str(item["periodo"] or "Optativa"),
                     "Natureza": item["natureza"],
                     "Carga horária": item["carga_horaria_horas"],
                 }
                 for item in resultados
             ],
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
         )
 
         nomes = {item["codigo"]: item["nome"] for item in repositorio.listar_estrutura(estrutura_id)}
@@ -126,7 +133,7 @@ if st.session_state.get("consulta_atual") == (modelo, estrutura_id):
                 st.dataframe(
                     [{"Código": item["codigo"], "Componente": item["nome"]} for item in dependentes],
                     hide_index=True,
-                    use_container_width=True,
+                    width="stretch",
                 )
             else:
                 st.write("Nenhum componente depende diretamente dele.")
@@ -147,7 +154,7 @@ if st.session_state.get("consulta_atual") == (modelo, estrutura_id):
                             for item in cadeia
                         ],
                         hide_index=True,
-                        use_container_width=True,
+                        width="stretch",
                     )
                 else:
                     st.write("Nenhum pré-requisito registrado.")
