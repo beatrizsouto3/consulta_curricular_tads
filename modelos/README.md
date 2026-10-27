@@ -1,3 +1,7 @@
 # Modelos lógicos
 
-Reservado aos modelos relacional, documental e de grafo, elaborados pelos respectivos integrantes.
+Use o [esquema canônico](../docs/esquema_canonico_curricular.md) como referência para manter os três modelos semanticamente equivalentes.
+
+- [MongoDB — modelo documental](mongodb.md)
+- SQLite — modelo relacional a ser incluído pelo integrante responsável.
+- Neo4j — modelo de grafo a ser incluído pelo integrante responsável.

@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "curso": {
+    "curso_id": "UFRN-EAJ-TADS",
+    "nome": "Análise e Desenvolvimento de Sistemas",
+    "instituicao": "Universidade Federal do Rio Grande do Norte",
+    "unidade": "Escola Agrícola de Jundiaí",
+    "municipio": "Macaíba/RN",
+    "modalidade": "presencial",
+    "grau": "tecnologo"
+  },
+  "estrutura": {
+    "estrutura_id": "UFRN-EAJ-TADS-03",
+    "curso_id": "UFRN-EAJ-TADS",
+    "codigo_sigaa": "03",
+    "ano_inicio": 2019,
+    "periodo_inicio": "2019.2",
+    "ativa": true,
+    "turnos": ["matutino", "vespertino", "noturno"],
+    "duracao_semestres": 6,
+    "carga_horaria_total_horas": 2295,
+    "fontes": [
+      {
+        "url": "https://sigaa.ufrn.br/sigaa/public/curso/curriculo.jsf?id=94598200&lc=pt_BR",
+        "coletada_em": "2026-10-27",
+        "escopo": "identificação e situação da estrutura curricular"
+      },
+      {
+        "url": "https://sigaa.ufrn.br/sigaa/downloadArquivoPublico?idProducao=6317915&key=300ba6bebacf53bae709c86d9662d6b9",
+        "coletada_em": "2026-10-27",
+        "escopo": "diagrama de 2019, créditos e pré-requisitos"
+      },
+      {
+        "url": "https://sigaa.ufrn.br/sigaa/downloadArquivoPublico?idProducao=16168549&key=2a57712a43cd58ba90a605251b8a0ef9",
+        "coletada_em": "2026-10-27",
+        "escopo": "matriz 03, períodos, cargas horárias, requisitos de integralização e relações curriculares"
+      }
+    ]
+  },
+  "requisitos_integralizacao": [
+    {"categoria": "componentes_obrigatorios", "carga_horaria_horas": 1665},
+    {"categoria": "componentes_optativos", "carga_horaria_horas": 240},
+    {"categoria": "atividades_complementares", "carga_horaria_horas": 180},
+    {"categoria": "atividades_integradoras", "carga_horaria_horas": 120},
+    {"categoria": "trabalho_conclusao_curso", "carga_horaria_horas": 90}
+  ],
+  "componentes": [
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0001","codigo":"TAD0001","nome":"Fundamentos da Computação","tipo":"disciplina","natureza":"obrigatorio","periodo":1,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0102","codigo":"TAD0102","nome":"Algoritmos e Programação","tipo":"disciplina","natureza":"obrigatorio","periodo":1,"carga_horaria_horas":90,"creditos":6,"pre_requisitos":{"codigo":"TAD0002"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0201","codigo":"TAD0201","nome":"Raciocínio Lógico","tipo":"disciplina","natureza":"obrigatorio","periodo":1,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0202","codigo":"TAD0202","nome":"Leitura e Produção de Textos","tipo":"disciplina","natureza":"obrigatorio","periodo":1,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0105","codigo":"TAD0105","nome":"Matemática Aplicada I","tipo":"disciplina","natureza":"obrigatorio","periodo":1,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"codigo":"TAD0005"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0006","codigo":"TAD0006","nome":"Sistemas Operacionais","tipo":"disciplina","natureza":"obrigatorio","periodo":1,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0103","codigo":"TAD0103","nome":"Banco de Dados","tipo":"disciplina","natureza":"obrigatorio","periodo":2,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"codigo":"TAD0003"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0009","codigo":"TAD0009","nome":"Programação Orientada a Objetos","tipo":"disciplina","natureza":"obrigatorio","periodo":2,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0002"},{"codigo":"TAD0102"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0111","codigo":"TAD0111","nome":"Programação Visual e Autoria Web","tipo":"disciplina","natureza":"obrigatorio","periodo":2,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"codigo":"TAD0011"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0012","codigo":"TAD0012","nome":"Processo de Desenvolvimento de Software","tipo":"disciplina","natureza":"obrigatorio","periodo":2,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0013","codigo":"TAD0013","nome":"Matemática Aplicada II","tipo":"disciplina","natureza":"obrigatorio","periodo":2,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0005"},{"codigo":"TAD0105"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0114","codigo":"TAD0114","nome":"Redes de Computadores","tipo":"disciplina","natureza":"obrigatorio","periodo":2,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"codigo":"TAD0014"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0016","codigo":"TAD0016","nome":"Vertentes Produtivas nas Ciências Agrárias","tipo":"disciplina","natureza":"obrigatorio","periodo":2,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0022","codigo":"TAD0022","nome":"Estatística Aplicada","tipo":"disciplina","natureza":"obrigatorio","periodo":3,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":{"codigo":"CCA0114"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0025","codigo":"TAD0025","nome":"Inteligência Computacional","tipo":"disciplina","natureza":"obrigatorio","periodo":3,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0002"},{"codigo":"TAD0102"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0019","codigo":"TAD0019","nome":"Programação Web","tipo":"disciplina","natureza":"obrigatorio","periodo":3,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"codigo":"TAD0009"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0020","codigo":"TAD0020","nome":"Estruturas de Dados","tipo":"disciplina","natureza":"obrigatorio","periodo":3,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0002"},{"codigo":"TAD0102"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0203","codigo":"TAD0203","nome":"Gestão de Qualidade de Software","tipo":"disciplina","natureza":"obrigatorio","periodo":3,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0123","codigo":"TAD0123","nome":"Sistemas Digitais","tipo":"disciplina","natureza":"obrigatorio","periodo":3,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":{"codigo":"TAD0023"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0004","codigo":"TAD0004","nome":"Análise e Projeto Orientado a Objetos","tipo":"disciplina","natureza":"obrigatorio","periodo":3,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0204","codigo":"TAD0204","nome":"Fundamentos e Técnicas em Ciência de Dados","tipo":"disciplina","natureza":"obrigatorio","periodo":4,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"AND","termos":[{"codigo":"TAD0022"},{"operador":"OR","termos":[{"codigo":"TAD0102"},{"codigo":"TAD0002"}]}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0018","codigo":"TAD0018","nome":"Processamento Digital de Imagens","tipo":"disciplina","natureza":"obrigatorio","periodo":4,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0002"},{"codigo":"TAD0102"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0027","codigo":"TAD0027","nome":"Programação para Dispositivos Móveis","tipo":"disciplina","natureza":"obrigatorio","periodo":4,"carga_horaria_horas":90,"creditos":6,"pre_requisitos":{"codigo":"TAD0009"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0028","codigo":"TAD0028","nome":"Planejamento e Gerência de Projetos","tipo":"disciplina","natureza":"obrigatorio","periodo":4,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0032","codigo":"TAD0032","nome":"Metodologia do Trabalho Científico","tipo":"disciplina","natureza":"obrigatorio","periodo":4,"carga_horaria_horas":30,"creditos":2,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0030","codigo":"TAD0030","nome":"Microcontroladores","tipo":"disciplina","natureza":"obrigatorio","periodo":4,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0029","codigo":"TAD0029","nome":"Arquitetura de Software","tipo":"disciplina","natureza":"obrigatorio","periodo":4,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0003"},{"codigo":"TAD0009"},{"codigo":"TAD0011"},{"codigo":"TAD0103"},{"codigo":"TAD0111"}]},"co_requisitos":[],"equivalencias":[]},
+
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0156","codigo":"TAD0156","nome":"Projetos Aplicados I","tipo":"atividade_integradora","natureza":"obrigatorio","periodo":5,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"AND","termos":[{"operador":"OR","termos":[{"codigo":"TAD0102"},{"codigo":"TAD0002"}]},{"operador":"OR","termos":[{"codigo":"TAD0103"},{"codigo":"TAD0003"}]},{"codigo":"TAD0012"}]},"co_requisitos":[],"equivalencias":["TAD0056"]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0205","codigo":"TAD0205","nome":"Trabalho de Conclusão de Curso I","tipo":"trabalho_conclusao","natureza":"obrigatorio","periodo":5,"carga_horaria_horas":30,"creditos":2,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0160","codigo":"TAD0160","nome":"Sistemas Distribuídos","tipo":"disciplina","natureza":"obrigatorio","periodo":5,"carga_horaria_horas":30,"creditos":2,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0114"},{"codigo":"TAD0014"}]},"co_requisitos":[],"equivalencias":["TAD0060"]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0015","codigo":"TAD0015","nome":"Empreendedorismo","tipo":"disciplina","natureza":"obrigatorio","periodo":5,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0108","codigo":"TAD0108","nome":"Contexto Geográfico Regional","tipo":"disciplina","natureza":"obrigatorio","periodo":5,"carga_horaria_horas":30,"creditos":2,"pre_requisitos":{"codigo":"TAD0008"},"co_requisitos":[],"equivalencias":[]},
+
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0157","codigo":"TAD0157","nome":"Projetos Aplicados II","tipo":"atividade_integradora","natureza":"obrigatorio","periodo":6,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"operador":"AND","termos":[{"operador":"OR","termos":[{"codigo":"TAD0156"},{"codigo":"TAD0056"}]},{"codigo":"TAD0028"}]},"co_requisitos":[],"equivalencias":["TAD0057"]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0140","codigo":"TAD0140","nome":"Trabalho de Conclusão de Curso II","tipo":"trabalho_conclusao","natureza":"obrigatorio","periodo":6,"carga_horaria_horas":60,"creditos":4,"pre_requisitos":{"codigo":"TAD0040"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0035","codigo":"TAD0035","nome":"Legislação e Ética em TI","tipo":"disciplina","natureza":"obrigatorio","periodo":6,"carga_horaria_horas":45,"creditos":3,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+
+    {"componente_id":"UFRN-EAJ-TADS-03:CCA0403","codigo":"CCA0403","nome":"Língua Espanhola 1","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:CCA0404","codigo":"CCA0404","nome":"Língua Espanhola 2","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:LET0568","codigo":"LET0568","nome":"Língua Brasileira de Sinais - Libras","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0036","codigo":"TAD0036","nome":"Sistemas Embarcados","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0023"},{"codigo":"TAD0123"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0034","codigo":"TAD0034","nome":"Tópicos em Redes de Computadores","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":45,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0042","codigo":"TAD0042","nome":"Gestão Tecnológica de Empreendimentos Familiares","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":45,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0043","codigo":"TAD0043","nome":"Fontes Alternativas de Energia","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0044","codigo":"TAD0044","nome":"Meteorologia Aplicada","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0047","codigo":"TAD0047","nome":"Banco de Dados Geográfico","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":45,"creditos":null,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0003"},{"codigo":"TAD0103"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0048","codigo":"TAD0048","nome":"Ciência do Solo","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":45,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0054","codigo":"TAD0054","nome":"Mineração de Dados","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0003"},{"codigo":"TAD0103"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0058","codigo":"TAD0058","nome":"Competições de Programação","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":{"codigo":"TAD0020"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0059","codigo":"TAD0059","nome":"Desenvolvimento de Jogos Digitais","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":{"operador":"AND","termos":[{"codigo":"TAD0009"},{"codigo":"TAD0020"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0061","codigo":"TAD0061","nome":"Gestão de Serviços de TI","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0062","codigo":"TAD0062","nome":"Computação Ubíqua","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0060"},{"codigo":"TAD0160"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0064","codigo":"TAD0064","nome":"Redes de Alta Velocidade","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0014"},{"codigo":"TAD0114"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0065","codigo":"TAD0065","nome":"Aprendizado de Máquina","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0002"},{"codigo":"TAD0102"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:DAN0024","codigo":"DAN0024","nome":"Direitos Humanos, Diversidade Cultural e Relações Étnico-Raciais","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":60,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0010","codigo":"TAD0010","nome":"Banco de Dados II","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":45,"creditos":null,"pre_requisitos":{"operador":"OR","termos":[{"codigo":"TAD0003"},{"codigo":"TAD0103"}]},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0021","codigo":"TAD0021","nome":"Engenharia de Software","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":45,"creditos":null,"pre_requisitos":{"codigo":"TAD0012"},"co_requisitos":[],"equivalencias":[]},
+    {"componente_id":"UFRN-EAJ-TADS-03:TAD0007","codigo":"TAD0007","nome":"Instalação e Arquitetura de Computadores","tipo":"disciplina","natureza":"optativo","periodo":null,"carga_horaria_horas":45,"creditos":null,"pre_requisitos":[],"co_requisitos":[],"equivalencias":[]}
+  ]
+}

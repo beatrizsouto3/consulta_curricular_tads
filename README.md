@@ -47,7 +47,9 @@ streamlit run app.py
 └── requirements.txt        # dependências instaladas dentro do .venv
 ```
 
-Os diretórios dos bancos são apenas pontos de partida. Cada integrante implementará neles a modelagem e a lógica Python correspondentes. A interface atual não se conecta a nenhum banco.
+Na interface, escolha o banco e a estrutura curricular. A integração MongoDB permite filtrar componentes por código, nome, período e natureza (obrigatória ou optativa), além de consultar pré-requisitos e componentes dependentes. SQLite e Neo4j aparecem no seletor, mas ainda não exibem dados enquanto suas integrações são desenvolvidas.
+
+Para usar a interface com MongoDB, inicie o serviço e importe a estrutura conforme o [guia do MongoDB](bancos/mongodb/README.md). Depois execute `streamlit run app.py`.
 
 ## Dependências
 
