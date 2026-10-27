@@ -1,15 +1,5 @@
-import json
-from pathlib import Path
-
+from bancos.curriculo import CURRICULO_PADRAO, carregar_curriculo
 from consultas.normalizacao import normalizar_texto
-
-
-ROOT = Path(__file__).resolve().parents[2]
-CURRICULO_PADRAO = ROOT / "dados" / "curriculos" / "tads_ufrn_2019.json"
-
-
-def carregar_curriculo(caminho: Path = CURRICULO_PADRAO) -> dict:
-    return json.loads(caminho.read_text(encoding="utf-8"))
 
 
 def montar_documento(curriculo: dict) -> dict:

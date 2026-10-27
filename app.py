@@ -1,7 +1,6 @@
 import streamlit as st
 
-from bancos.mongodb.conexao import criar_cliente, obter_banco
-from bancos.mongodb.repositorio import RepositorioMongoDB
+from consultas.fabrica import MODELOS, criar_repositorio
 
 
 st.set_page_config(page_title="Consulta Curricular TADS", page_icon="📚")
@@ -21,25 +20,27 @@ def _formatar_requisito(requisito, nomes):
 
 
 @st.cache_resource
-def _obter_cliente():
-    return criar_cliente()
+def _obter_repositorio(modelo):
+    return criar_repositorio(modelo)
 
 
 st.title("Consulta à Estrutura Curricular do TADS")
 
-modelo = st.selectbox("Modelo de banco de dados", ["MongoDB", "SQLite", "Neo4j"])
+modelo = st.selectbox("Modelo de banco de dados", MODELOS)
 
-if modelo != "MongoDB":
-    st.info(f"A integração com {modelo} ainda não está disponível.")
+try:
+    repositorio = _obter_repositorio(modelo)
+except NotImplementedError as erro:
+    st.info(str(erro))
     st.stop()
 
-cliente = _obter_cliente()
 try:
-    banco = obter_banco(cliente)
-    repositorio = RepositorioMongoDB(banco)
     estruturas = repositorio.listar_estruturas()
 except Exception:
-    st.error("Não foi possível conectar ao MongoDB. Confira se o serviço está ativo e a URI está correta.")
+    st.error(
+        f"Não foi possível conectar ao {modelo}. "
+        "Confira se o serviço está ativo e as configurações do .env."
+    )
     st.stop()
 
 if not estruturas:
@@ -81,9 +82,9 @@ if enviar:
     else:
         resultados = repositorio.listar_estrutura(estrutura_id, natureza)
     st.session_state["resultados_curriculares"] = resultados
-    st.session_state["estrutura_consultada"] = estrutura_id
+    st.session_state["consulta_atual"] = (modelo, estrutura_id)
 
-if st.session_state.get("estrutura_consultada") == estrutura_id:
+if st.session_state.get("consulta_atual") == (modelo, estrutura_id):
     resultados = st.session_state.get("resultados_curriculares", [])
     st.subheader("Componentes encontrados")
     if not resultados:
@@ -129,3 +130,24 @@ if st.session_state.get("estrutura_consultada") == estrutura_id:
                 )
             else:
                 st.write("Nenhum componente depende diretamente dele.")
+
+        if hasattr(repositorio, "listar_cadeia_pre_requisitos"):
+            with st.expander("Cadeia completa de pré-requisitos"):
+                st.caption("Inclui requisitos indiretos e as alternativas de grupos OU.")
+                cadeia = repositorio.listar_cadeia_pre_requisitos(estrutura_id, componente["codigo"])
+                if cadeia:
+                    st.dataframe(
+                        [
+                            {
+                                "Nível": item["nivel"],
+                                "Código": item["codigo"],
+                                "Componente": item["nome"] or "componente fora desta estrutura",
+                                "Período": str(item["periodo"] or "—"),
+                            }
+                            for item in cadeia
+                        ],
+                        hide_index=True,
+                        use_container_width=True,
+                    )
+                else:
+                    st.write("Nenhum pré-requisito registrado.")

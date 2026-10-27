@@ -47,9 +47,11 @@ streamlit run app.py
 └── requirements.txt        # dependências instaladas dentro do .venv
 ```
 
-Na interface, escolha o banco e a estrutura curricular. A integração MongoDB permite filtrar componentes por código, nome, período e natureza (obrigatória ou optativa), além de consultar pré-requisitos e componentes dependentes. SQLite e Neo4j aparecem no seletor, mas ainda não exibem dados enquanto suas integrações são desenvolvidas.
+Na interface, escolha o banco e a estrutura curricular. As integrações MongoDB e Neo4j permitem filtrar componentes por código, nome, período e natureza (obrigatória ou optativa), além de consultar pré-requisitos e componentes dependentes. O Neo4j mostra também a cadeia completa de pré-requisitos. SQLite aparece no seletor, mas ainda não exibe dados enquanto sua integração é desenvolvida.
 
-Para usar a interface com MongoDB, inicie o serviço e importe a estrutura conforme o [guia do MongoDB](bancos/mongodb/README.md). Depois execute `streamlit run app.py`.
+Para usar a interface, inicie os serviços e importe a estrutura conforme os guias do [MongoDB](bancos/mongodb/README.md) e do [Neo4j](bancos/neo4j/README.md). Depois execute `streamlit run app.py`.
+
+Para cadastrar a estrutura curricular de outro curso, adicione um novo arquivo `.json` em `dados/curriculos/` seguindo o [esquema canônico](docs/esquema_canonico_curricular.md) e rode os importadores novamente. Nenhum código precisa ser alterado.
 
 ## Dependências
 
