@@ -35,6 +35,7 @@ streamlit run app.py
 ```text
 .
 ├── app.py                 # ponto de entrada da interface Streamlit
+├── pages/                  # páginas extras da interface (comparação de desempenho)
 ├── bancos/
 │   ├── sqlite/             # espaço de implementação do integrante responsável
 │   ├── mongodb/            # espaço de implementação do integrante responsável
@@ -52,6 +53,16 @@ Na interface, escolha o banco e a estrutura curricular. As integrações MongoDB
 Para usar a interface, inicie os serviços e importe a estrutura conforme os guias do [MongoDB](bancos/mongodb/README.md) e do [Neo4j](bancos/neo4j/README.md). Depois execute `streamlit run app.py`.
 
 Para cadastrar a estrutura curricular de outro curso, adicione um novo arquivo `.json` em `dados/curriculos/` seguindo o [esquema canônico](docs/esquema_canonico_curricular.md) e rode os importadores novamente. Nenhum código precisa ser alterado.
+
+## Comparação de desempenho
+
+A página **Desempenho**, no menu lateral da interface, executa as mesmas consultas em cada banco disponível e compara a mediana do tempo de resposta. Pelo terminal, o mesmo resultado sai em CSV:
+
+```bash
+python -m scripts.comparar_desempenho --saida docs/desempenho.csv
+```
+
+Metodologia e interpretação dos resultados estão em [docs/desempenho.md](docs/desempenho.md).
 
 ## Dependências
 
