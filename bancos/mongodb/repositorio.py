@@ -21,6 +21,9 @@ class RepositorioMongoDB:
     def __init__(self, banco):
         self.colecao = banco["estruturas_curriculares"]
 
+    def fechar(self) -> None:
+        self.colecao.database.client.close()
+
     def _filtrar_componentes(
         self,
         estrutura_id: str,

@@ -14,7 +14,7 @@ docker compose up -d mongodb
 python -m scripts.importar_mongodb
 ```
 
-O script grava um documento por estrutura na coleção `estruturas_curriculares`. Ele pode ser executado novamente sem duplicar o currículo. A conexão usa `MONGODB_URI` e `MONGODB_DATABASE` do `.env` ou os padrões `mongodb://localhost:27017/` e `consulta_curricular_tads`.
+Sem argumentos, o script importa todos os arquivos `.json` de `dados/curriculos/`; para um arquivo específico, passe o caminho como argumento. Ele grava um documento por estrutura na coleção `estruturas_curriculares`. Ele pode ser executado novamente sem duplicar o currículo. A conexão usa `MONGODB_URI` e `MONGODB_DATABASE` do `.env` ou os padrões `mongodb://localhost:27017/` e `consulta_curricular_tads`.
 
 Depois da importação, inicie a interface na raiz do projeto com `streamlit run app.py`. Ela permite escolher a estrutura, filtrar componentes por código, nome, período ou natureza e visualizar pré-requisitos e dependentes diretos. A busca inversa considera os grupos de requisitos `AND` e `OR`.
 
