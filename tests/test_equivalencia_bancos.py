@@ -5,7 +5,7 @@ from consultas.fabrica import criar_repositorio
 
 ESTRUTURA_ID = "UFRN-EAJ-TADS-03"
 REFERENCIA = "MongoDB"
-COMPARADOS = ("Neo4j",)
+COMPARADOS = ("SQLite", "Neo4j")
 
 
 def _conectar(modelo: str, abertos: list):

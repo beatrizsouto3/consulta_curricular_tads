@@ -28,7 +28,7 @@ Consultas contra o servidor:
 python -m scripts.testar_consultas_neo4j
 ```
 
-Testes de unidade, sem servidor, e teste de equivalência com o MongoDB, que só roda quando os dois serviços estão ativos e com dados importados:
+Testes de unidade, sem servidor, e teste de equivalência com o MongoDB e o SQLite, que só roda quando os bancos comparados estão disponíveis e com dados importados:
 
 ```bash
 python -m unittest discover -s tests -v

@@ -7,3 +7,5 @@ Valide o arquivo antes de importá-lo:
 ```bash
 python -m scripts.validar_curriculo
 ```
+
+O banco SQLite gerado pela importação fica em `dados/consulta_curricular.sqlite3` (ou no caminho definido em `SQLITE_PATH`) e não é versionado.
