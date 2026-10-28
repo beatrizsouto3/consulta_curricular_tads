@@ -25,21 +25,22 @@ Na interface, a página **Desempenho** (menu lateral do `streamlit run app.py`) 
 
 ## Exemplo de execução
 
-27/10/2026, máquina de desenvolvimento, MongoDB 7.0 e Neo4j 5.26 em Docker local, 30 repetições:
+Máquina de desenvolvimento, SQLite 3 em arquivo local, MongoDB 7.0 e Neo4j 5.26 em Docker local, 30 repetições:
 
-| Consulta | MongoDB | Neo4j | Itens |
-| --- | ---: | ---: | ---: |
-| Estrutura completa | 1,240 ms | 7,948 ms | 56 |
-| Busca por código | 0,572 ms | 3,771 ms | 1 |
-| Busca por nome | 0,637 ms | 4,099 ms | 2 |
-| Componentes do período | 0,873 ms | 4,759 ms | 6 |
-| Dependentes diretos | 0,960 ms | 4,916 ms | 7 |
-| Cadeia de pré-requisitos | — | 3,703 ms | 7 |
+| Consulta | SQLite | MongoDB | Neo4j | Itens |
+| --- | ---: | ---: | ---: | ---: |
+| Estrutura completa | 0,406 ms | 1,240 ms | 7,948 ms | 56 |
+| Busca por código | 0,033 ms | 0,572 ms | 3,771 ms | 1 |
+| Busca por nome | 0,072 ms | 0,637 ms | 4,099 ms | 2 |
+| Componentes do período | 0,058 ms | 0,873 ms | 4,759 ms | 6 |
+| Dependentes diretos | 0,127 ms | 0,960 ms | 4,916 ms | 7 |
+| Cadeia de pré-requisitos | 0,045 ms | — | 3,703 ms | 7 |
 
 Os números variam com a máquina; gere os seus antes de apresentar.
 
 ## Como interpretar
 
-- **Volume pequeno favorece o documento único.** O MongoDB lê um único documento com a estrutura inteira; com 56 componentes, isso é quase só o custo de rede.
+- **Banco embutido elimina o custo de rede.** O SQLite roda no próprio processo do Python lendo um arquivo local (já aquecido no cache de página do sistema operacional), sem troca de mensagens por socket TCP com um container Docker. Por isso responde na casa de décimos ou centésimos de milissegundo, mesmo fazendo `JOIN` entre tabelas ou CTE recursiva (`WITH RECURSIVE`).
+- **Volume pequeno favorece o documento único entre os servidores.** Entre os bancos cliente-servidor, o MongoDB lê um único documento com a estrutura inteira; com 56 componentes, isso é quase só o custo de rede local.
 - **O Neo4j tem um custo fixo por consulta.** Uma consulta vazia (`RETURN 1`) levou 2,5 ms, contra 0,35 ms de um `ping` no MongoDB, porque cada chamada abre sessão e transação pelo protocolo Bolt. Boa parte do tempo do grafo é esse custo, não a travessia.
-- **A vantagem do grafo é a pergunta, não o cronômetro.** A cadeia completa de pré-requisitos é uma única consulta Cypher com profundidade variável; no documento, exigiria percorrer as árvores repetidamente na aplicação.
+- **A vantagem do grafo (e da CTE recursiva) é a pergunta, não só o cronômetro.** A cadeia completa de pré-requisitos é expressa declarativamente em Cypher (`[:DEPENDE_DE*1..]`) no Neo4j e em SQL recursivo (`WITH RECURSIVE`) no SQLite; no modelo documental, exigiria percorrer as árvores repetidamente na aplicação.
