@@ -10,7 +10,7 @@ Com os serviços ativos e os dados importados em cada banco:
 python -m scripts.comparar_desempenho --saida docs/desempenho.csv
 ```
 
-Opções: `--bancos MongoDB Neo4j` limita os bancos, `--estrutura` escolhe a estrutura, `--repeticoes` e `--aquecimento` controlam as execuções. Bancos indisponíveis ou ainda não implementados são ignorados com um aviso.
+Opções: `--bancos SQLite MongoDB Neo4j` limita os bancos, `--estrutura` escolhe a estrutura, `--repeticoes` e `--aquecimento` controlam as execuções. Bancos indisponíveis ou ainda não implementados são ignorados com um aviso.
 
 Na interface, a página **Desempenho** (menu lateral do `streamlit run app.py`) faz a mesma medição, mostra o gráfico e a tabela e permite baixar o CSV. A página principal também mostra o tempo de cada busca feita.
 
@@ -21,7 +21,7 @@ Na interface, a página **Desempenho** (menu lateral do `streamlit run app.py`) 
 - **Aquecimento.** As primeiras execuções (3 por padrão) são descartadas, porque incluem abertura de conexão e caches frios, que não representam o uso contínuo.
 - **Mediana.** Cada consulta é medida 30 vezes por padrão. A mediana é o valor principal porque um pico isolado (o sistema operacional ocupado, por exemplo) distorce a média, mas não a mediana. Mínimo, máximo e média ficam no CSV para referência.
 - **Relógio.** `time.perf_counter()`, o relógio de maior resolução do Python para medir intervalos.
-- **Consultas exclusivas.** A cadeia de pré-requisitos só existe no Neo4j; ela aparece no resultado, mas não é uma comparação.
+- **Consultas exclusivas.** A cadeia de pré-requisitos é implementada no Neo4j e no SQLite; no MongoDB ela não existe como método e não entra na comparação desse banco.
 
 ## Exemplo de execução
 

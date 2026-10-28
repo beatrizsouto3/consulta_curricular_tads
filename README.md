@@ -37,9 +37,9 @@ streamlit run app.py
 ├── app.py                 # ponto de entrada da interface Streamlit
 ├── pages/                  # páginas extras da interface (comparação de desempenho)
 ├── bancos/
-│   ├── sqlite/             # espaço de implementação do integrante responsável
-│   ├── mongodb/            # espaço de implementação do integrante responsável
-│   └── neo4j/              # espaço de implementação do integrante responsável
+│   ├── sqlite/             # implementação relacional (SQLite)
+│   ├── mongodb/            # implementação documental (MongoDB)
+│   └── neo4j/              # implementação em grafo (Neo4j)
 ├── dados/                  # dados curriculares conferidos pela equipe
 ├── docs/                   # decisões e documentação do projeto
 ├── modelos/                # modelos lógicos dos três bancos
@@ -48,9 +48,16 @@ streamlit run app.py
 └── requirements.txt        # dependências instaladas dentro do .venv
 ```
 
-Na interface, escolha o banco e a estrutura curricular. As integrações MongoDB e Neo4j permitem filtrar componentes por código, nome, período e natureza (obrigatória ou optativa), além de consultar pré-requisitos e componentes dependentes. O Neo4j mostra também a cadeia completa de pré-requisitos. SQLite aparece no seletor, mas ainda não exibe dados enquanto sua integração é desenvolvida.
+Na interface, escolha o banco e a estrutura curricular. As três integrações permitem filtrar componentes por código, nome, período e natureza (obrigatória ou optativa), além de consultar pré-requisitos e componentes dependentes. O Neo4j e o SQLite mostram também a cadeia completa de pré-requisitos.
 
-Para usar a interface, inicie os serviços e importe a estrutura conforme os guias do [MongoDB](bancos/mongodb/README.md) e do [Neo4j](bancos/neo4j/README.md). Depois execute `streamlit run app.py`.
+Para usar a interface com SQLite, importe a estrutura e inicie a aplicação:
+
+```bash
+python -m scripts.importar_sqlite
+streamlit run app.py
+```
+
+O SQLite não precisa de serviço externo: o arquivo `dados/consulta_curricular.sqlite3` é criado pela importação. Para usar MongoDB ou Neo4j, inicie o serviço correspondente e rode `python -m scripts.importar_mongodb` ou `python -m scripts.importar_neo4j`, conforme os guias do [MongoDB](bancos/mongodb/README.md) e do [Neo4j](bancos/neo4j/README.md). O guia do [SQLite](bancos/sqlite/README.md) descreve o esquema e o uso.
 
 Para cadastrar a estrutura curricular de outro curso, adicione um novo arquivo `.json` em `dados/curriculos/` seguindo o [esquema canônico](docs/esquema_canonico_curricular.md) e rode os importadores novamente. Nenhum código precisa ser alterado.
 
