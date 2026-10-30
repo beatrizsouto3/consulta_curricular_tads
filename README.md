@@ -90,3 +90,11 @@ streamlit run app.py
   ```bash
   python -m scripts.comparar_desempenho --saida docs/desempenho.csv
   ```
+
+---
+
+## Integrantes
+
+- **Alan**
+- **Beatriz Souto**
+- **Davi Santos**
